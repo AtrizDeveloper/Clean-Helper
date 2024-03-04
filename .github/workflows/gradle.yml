@@ -2,9 +2,9 @@ name: Build version
 
 on:
   push:
-    branches: [ "main", "develop" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "main", "develop" ]
+    branches: [ "main" ]
 
 jobs:
   build:
@@ -28,8 +28,33 @@ jobs:
     - name: Clean Test
       run: ./gradlew clean test
 
-    - name: Build with Gradle Wrapper
-      run: ./gradlew build
+    - name: Build Ui module
+      run: ./gradlew :clean-ui:assemble
+
+    - name: Build Domain module
+      run: ./gradlew :clean-domain:assemble
+
+    - name: Build Data module
+      run: ./gradlew :clean-data:assemble
+
+    - name: Publish Ui module
+      run: ./gradlew :clean-ui:publish
+      env:
+        github_user: ${{ secrets.USER }}
+        github_token: ${{ secrets.TOKEN }}
+
+    - name: Publish Domain module
+      run: ./gradlew :clean-domain:publish
+      env:
+        github_user: ${{ secrets.USER }}
+        github_token: ${{ secrets.TOKEN }}
+
+    - name: Publish Data module
+      run: ./gradlew :clean-data:publish
+      env:
+        github_user: ${{ secrets.USER }}
+        github_token: ${{ secrets.TOKEN }}
+
 
     # NOTE: The Gradle Wrapper is the default and recommended way to run Gradle (https://docs.gradle.org/current/userguide/gradle_wrapper.html).
     # If your project does not have the Gradle Wrapper configured, you can use the following configuration to run Gradle with a specified version.
