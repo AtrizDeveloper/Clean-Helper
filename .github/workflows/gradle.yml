@@ -29,28 +29,28 @@ jobs:
       run: ./gradlew clean test
 
     - name: Build Ui module
-      run: ./gradlew :clean-ui:assemble
+      run: ./gradlew :core-ui:assemble
 
     - name: Build Domain module
-      run: ./gradlew :clean-domain:assemble
+      run: ./gradlew :core-domain:assemble
 
     - name: Build Data module
-      run: ./gradlew :clean-data:assemble
+      run: ./gradlew :core-data:assemble
 
     - name: Publish Ui module
-      run: ./gradlew :clean-ui:publish
+      run: ./gradlew :core-ui:publish
       env:
         github_user: ${{ secrets.USER }}
         github_token: ${{ secrets.TOKEN }}
 
     - name: Publish Domain module
-      run: ./gradlew :clean-domain:publish
+      run: ./gradlew :core-domain:publish
       env:
         github_user: ${{ secrets.USER }}
         github_token: ${{ secrets.TOKEN }}
 
     - name: Publish Data module
-      run: ./gradlew :clean-data:publish
+      run: ./gradlew :core-data:publish
       env:
         github_user: ${{ secrets.USER }}
         github_token: ${{ secrets.TOKEN }}
