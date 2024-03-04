@@ -20,6 +20,6 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "Helper"
-include(":ui")
+include(":core-ui")
 //include(":data")
 //include(":domain")

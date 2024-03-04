@@ -35,15 +35,24 @@ dependencies {
 
 }
 
-afterEvaluate {
-    publishing {
-        publications {
-            create<MavenPublication>("release") {
+publishing {
+    publications {
+        register<MavenPublication>("release") {
+            groupId = "mx.com.atriz"
+            artifactId = "core-ui"
+            version = "0.0.1"
+            afterEvaluate {
                 from(components["release"])
-                groupId = "mx.com.atriz"
-                artifactId = "ui"
-                version = "0.0.1"
-
+            }
+        }
+    }
+    repositories {
+        maven {
+            name = "Clean-Helper"
+            url = uri("https://maven.pkg.github.com/AtrizDeveloper/Clean-Helper")
+            credentials{
+                username = System.getenv("github_user")
+                password = System.getenv("github_token")
             }
         }
     }
