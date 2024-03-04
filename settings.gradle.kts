@@ -21,5 +21,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "Helper"
 include(":ui")
-include(":data")
-include(":domain")
+//include(":data")
+//include(":domain")
