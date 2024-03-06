@@ -46,7 +46,7 @@ publishing {
         register<MavenPublication>("release") {
             groupId = "mx.com.atriz"
             artifactId = "core-ui"
-            version = "0.0.4"
+            version = "0.0.5"
             afterEvaluate {
                 from(components["release"])
             }
