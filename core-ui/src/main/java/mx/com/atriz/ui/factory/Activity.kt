@@ -1,4 +1,4 @@
-package mx.com.atriz.ui.base
+package mx.com.atriz.ui.factory
 
 import android.content.res.Configuration
 import android.os.Bundle

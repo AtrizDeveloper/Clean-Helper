@@ -1,4 +1,4 @@
-package mx.com.atriz.ui.base
+package mx.com.atriz.ui.factory
 
 import android.annotation.SuppressLint
 import android.app.Application
